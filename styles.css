@@ -1,30 +1,50 @@
 /* =========================================================
    G&D Construction & Snow Removal — Master Stylesheet
-   Aesthetic: refined industrial + warm stone, terracotta accents
+   Aesthetic: bright, professional, friendly. Brand palette:
+   blue (primary), orange (accent/CTA), forest green (tagline)
    ========================================================= */
 
 :root {
-  /* Color system */
-  --stone-900: #1a1612;       /* deep charcoal stone */
-  --stone-800: #2a2520;
-  --stone-700: #3d362e;
-  --stone-500: #6b5d50;
-  --stone-300: #b9aa97;
-  --stone-200: #d6cabb;
-  --stone-100: #ece4d7;
-  --stone-50:  #f7f2e9;
-  --paper:     #fbf7ee;
+  /* Color system — neutrals (kept name `stone-*` for compat,
+     now a cooler near-neutral that pairs with the blue) */
+  --stone-900: #0f1722;       /* deep navy-charcoal */
+  --stone-800: #1a2434;
+  --stone-700: #2c3a4f;
+  --stone-500: #5a6878;
+  --stone-300: #b3bcc7;
+  --stone-200: #d3d9e0;
+  --stone-100: #e9edf2;
+  --stone-50:  #f4f6f9;
+  --paper:     #fbfcfe;
   --white:     #ffffff;
 
-  --terracotta: #c14a23;       /* signature accent */
-  --terracotta-dark: #8e3414;
-  --terracotta-glow: #e6663d;
+  /* PRIMARY — brand blue (the G and D in the logo) */
+  --terracotta: #1478dc;       /* legacy var name kept for compat;
+                                   now the brand blue used as primary */
+  --terracotta-dark: #0f5cb0;
+  --terracotta-glow: #4a9eef;
 
-  --moss: #4a5d3a;             /* secondary accent */
-  --ice-blue: #5b8aa6;         /* snow service accent */
+  /* True brand color names for new usages */
+  --brand-blue: #1478dc;
+  --brand-blue-dark: #0f5cb0;
+  --brand-blue-light: #4a9eef;
 
-  --success: #3d6b3d;
-  --error: #b13c2a;
+  /* ACCENT — brand orange (the & in the logo). Use for CTAs,
+     warm callouts, and to add energy. */
+  --brand-orange: #f08c14;
+  --brand-orange-dark: #c87010;
+  --brand-orange-light: #ffa838;
+
+  /* SECONDARY — brand green (the tagline). Use sparingly for
+     landscaping/garden services and trust accents. */
+  --brand-green: #144628;
+  --brand-green-light: #2a6c45;
+
+  --moss: #144628;             /* alias to brand-green */
+  --ice-blue: #4a9eef;         /* snow accent — now uses the lighter brand blue */
+
+  --success: #2a6c45;
+  --error: #c43c2a;
 
   /* Typography */
   --font-display: 'Bebas Neue', 'Impact', sans-serif;
@@ -36,9 +56,9 @@
   --container-narrow: 960px;
   --radius: 4px;
   --radius-lg: 8px;
-  --shadow-sm: 0 2px 8px rgba(26,22,18,.08);
-  --shadow-md: 0 8px 24px rgba(26,22,18,.12);
-  --shadow-lg: 0 20px 60px rgba(26,22,18,.18);
+  --shadow-sm: 0 2px 8px rgba(15,23,34,.08);
+  --shadow-md: 0 8px 24px rgba(15,23,34,.12);
+  --shadow-lg: 0 20px 60px rgba(15,23,34,.18);
 
   --transition: 220ms cubic-bezier(.4,0,.2,1);
 }
@@ -130,15 +150,15 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   line-height: 1;
 }
 .btn-primary {
-  background: var(--terracotta);
-  color: var(--paper);
-  border-color: var(--terracotta);
-  box-shadow: 0 4px 0 var(--terracotta-dark);
+  background: var(--brand-orange);
+  color: var(--white);
+  border-color: var(--brand-orange);
+  box-shadow: 0 4px 0 var(--brand-orange-dark);
 }
 .btn-primary:hover {
-  background: var(--terracotta-dark);
-  border-color: var(--terracotta-dark);
-  color: var(--paper);
+  background: var(--brand-orange-dark);
+  border-color: var(--brand-orange-dark);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 6px 0 var(--stone-900);
 }
@@ -180,29 +200,12 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   align-items: center;
   gap: 12px;
   color: var(--stone-900);
+  text-decoration: none;
 }
 .logo:hover { color: var(--stone-900); }
-.logo img { width: 48px; height: 48px; object-fit: contain; }
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-  font-style: normal;
-}
-.logo-text strong {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: .04em;
-  color: var(--stone-900);
-}
-.logo-text em {
-  font-style: normal;
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stone-500);
-}
+.logo img { height: 44px; width: auto; object-fit: contain; display: block; }
+/* Hide the redundant text label — the new logo image already contains "G&D" */
+.logo-text { display: none; }
 
 .primary-nav { flex: 1; display: flex; justify-content: center; }
 .primary-nav ul {
@@ -265,9 +268,9 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(193,74,35,.18), transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(91,138,166,.12), transparent 50%),
-    linear-gradient(135deg, #1a1612 0%, #2a2520 60%, #3d362e 100%);
+    radial-gradient(circle at 20% 30%, rgba(20,120,220,.22), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(240,140,20,.14), transparent 50%),
+    linear-gradient(135deg, #0f1722 0%, #1a2434 60%, #2c3a4f 100%);
 }
 .hero-bg::after {
   content: '';
@@ -282,14 +285,14 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(transparent 0%, rgba(26,22,18,.4) 100%);
+    linear-gradient(transparent 0%, rgba(15,23,34,.4) 100%);
 }
 .hero-inner { position: relative; z-index: 2; width: 100%; }
 .hero-content { max-width: 880px; }
 
 .hero .eyebrow {
   color: var(--terracotta-glow);
-  border-bottom: 1px solid rgba(230,102,61,.3);
+  border-bottom: 1px solid rgba(74,158,239,.3);
   padding-bottom: 12px;
   margin-bottom: 28px;
 }
@@ -620,7 +623,7 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   outline: none;
   border-color: var(--terracotta);
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(193,74,35,.12);
+  box-shadow: 0 0 0 3px rgba(20,120,220,.12);
 }
 .form-row textarea { resize: vertical; min-height: 120px; }
 .form-help {
@@ -651,7 +654,7 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   gap: 48px;
   padding-bottom: 60px;
 }
-.footer-brand img { margin-bottom: 16px; }
+.footer-brand img { margin-bottom: 16px; height: auto; max-width: 220px; width: 100%; background: var(--paper); padding: 14px 18px; border-radius: var(--radius); }
 .footer-brand p { color: var(--paper); margin-bottom: 8px; }
 .footer-tag { color: var(--stone-300) !important; font-size: .92rem; line-height: 1.6; max-width: 280px; }
 .footer-col h4 { color: var(--paper); margin-bottom: 18px; font-size: .85rem; }
@@ -689,13 +692,15 @@ h4 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacin
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 70% 50%, rgba(193,74,35,.22), transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(20,120,220,.22), transparent 60%),
     repeating-linear-gradient(45deg, transparent 0, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px);
 }
 .page-hero .container { position: relative; z-index: 2; }
 .page-hero h1 { color: var(--paper); margin-bottom: 18px; font-size: clamp(2.4rem, 5vw, 4rem); }
 .page-hero .lede { color: var(--stone-200); max-width: 720px; }
 .page-hero .eyebrow { color: var(--terracotta-glow); }
+.page-hero .btn-ghost { color: var(--paper); border-color: var(--stone-300); }
+.page-hero .btn-ghost:hover { background: var(--paper); color: var(--stone-900); }
 
 .breadcrumbs {
   margin-bottom: 24px;
