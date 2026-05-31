@@ -1,11 +1,11 @@
 # G&D Construction & Snow Removal — Website
 
-Flat-file website for **G&D Construction and Snow Removal, Inc.** (sister company to G&D Materials).
+Flat-file website for G&D Construction & Snow Removal (sister company to G&D Materials).
 Built for Netlify deployment via GitHub. **All files are flat — no subfolders.**
 
 ---
 
-## File Inventory (24 files)
+## File Inventory (22 files)
 
 ### HTML Pages (14)
 - `index.html` — Homepage with hero, services grid, areas, contact form
@@ -24,31 +24,16 @@ Built for Netlify deployment via GitHub. **All files are flat — no subfolders.
 - `thank-you.html` — Form submission confirmation page
 
 ### Assets
-- `styles.css` — Master stylesheet, brand-color palette
+- `styles.css` — Master stylesheet (~750 lines, fully responsive)
 - `script.js` — Mobile nav, smooth scroll, contact form prefill
-- `GD.png` — Header logo (165×44, "G&D" mark only)
-- `GD-full.png` — Footer logo (220×90, full mark with "Construction and Snow Removal Inc." tagline)
+- `GD.png` — Logo (512×512 placeholder — replace with official asset)
+- `GD.svg` — SVG source for the logo
 - `favicon.png` — 64×64 favicon
 
 ### SEO / Technical
 - `sitemap.xml` — XML sitemap (13 indexed URLs)
 - `robots.txt` — Crawl directives + AI bot allow list
-- `manifest.json` — PWA manifest (theme color: brand blue)
-
----
-
-## Brand System
-
-Colors pulled directly from the official logo:
-
-| Token | Hex | Usage |
-|---|---|---|
-| Brand blue | `#1478dc` | Primary brand color, links, accents |
-| Brand orange | `#f08c14` | All primary CTAs ("Get Estimate", "Send Request") |
-| Brand green | `#144628` | Reserved for trust/landscaping accents |
-| Navy neutral | `#0f1722` | Dark surfaces (footer, hero) |
-
-Typography: Bebas Neue (display), Fraunces (serif headings), Inter (body) — all loaded from Google Fonts.
+- `manifest.json` — PWA manifest
 
 ---
 
@@ -56,11 +41,12 @@ Typography: Bebas Neue (display), Fraunces (serif headings), Inter (body) — al
 
 - **Domain target:** gdconstructionsnow.com
 - **Phone:** 773-501-8699 (Dalyne)
-- **Email:** d.ganddlandscape@gmail.com (FormSubmit posts here)
+- **Email:** d.ganddlandscape@gmail.com (Formsubmit form posts here)
 - **Service areas:** 30 cities across Lake County + Chicago North Shore
 - **Sister site:** gdmulchmaterials.com (linked from footer & gardens page)
 - **Form:** city field is **MANDATORY** (per client spec)
-- **Schema.org:** GeneralContractor with `name` and `legalName` ("Inc.") + full areaServed list
+- **Schema.org:** GeneralContractor type with full areaServed list
+- **Snow service color:** Ice-blue accent (#5b8aa6) to differentiate from terracotta hardscape
 
 ---
 
@@ -87,15 +73,13 @@ Typography: Bebas Neue (display), Fraunces (serif headings), Inter (body) — al
 
 ## Pre-launch Checklist
 
-- [x] Official G&D logo integrated (header mark + full footer version)
-- [x] Brand color palette applied site-wide
-- [x] Legal entity name ("Inc.") in schema.org and copyright
-- [ ] Add real photos of past projects (patios, walls, fire pits) for hero / gallery
-- [ ] Verify FormSubmit on first test submission (FormSubmit emails Dalyne a one-click activation link on first use)
+- [ ] Replace `GD.png` with the official G&D logo from G&D Materials repo
+- [ ] Add real photos of past projects (patios, walls, fire pits) — replace stock hero
+- [ ] Verify FormSubmit on first test submission (FormSubmit requires email confirmation on first use)
 - [ ] Add `og-image.jpg` (1200×630) for social sharing — referenced in OG meta tags
 - [ ] Submit `sitemap.xml` to Google Search Console
 - [ ] Submit `sitemap.xml` to Bing Webmaster Tools
-- [ ] Set up Google Business Profile for "G&D Construction & Snow Removal, Inc."
+- [ ] Set up Google Business Profile for "G&D Construction & Snow Removal"
 - [ ] Verify SSL is provisioned (Netlify → Domain → HTTPS)
 - [ ] Test mobile nav, contact form, and all page-to-page links live
 
@@ -107,7 +91,7 @@ Typography: Bebas Neue (display), Fraunces (serif headings), Inter (body) — al
 - On success, redirects to: `https://gdconstructionsnow.com/thank-you.html`
 - Honeypot spam protection enabled (`_honey` hidden field)
 - City field is `required` per client request
-- URL parameters supported for prefill: `?service=Patio` or `?city=Lake%20Zurich` (params first, then `#contact` fragment)
+- URL parameters supported for prefill: `?service=patios` or `?city=Lake+Zurich`
 
 ---
 
@@ -115,9 +99,9 @@ Typography: Bebas Neue (display), Fraunces (serif headings), Inter (body) — al
 
 - LocalBusiness/GeneralContractor schema on homepage with all 30 service areas
 - Per-service Service schema on each landing page
-- `legalName` field added for Google Knowledge Graph entity matching
 - Canonical URLs on every page
 - Open Graph + Twitter Card meta tags
+- Bebas Neue / Fraunces / Inter font stack via Google Fonts (preconnected)
 - Mobile-first responsive design (980px and 640px breakpoints)
 - ADA: skip-link, ARIA labels, prefers-reduced-motion, semantic HTML
 - AI crawler explicit allows (GPTBot, ClaudeBot, PerplexityBot, etc.)
