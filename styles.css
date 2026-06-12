@@ -431,6 +431,82 @@ h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; text-tran
 .service-card-snow:hover .service-icon { background: var(--stone-900); color: var(--ice-blue); }
 
 /* =========================================================
+   Recent Work
+   ========================================================= */
+.work-section { background: var(--paper); }
+.work-section .section-sub {
+  font-size: 1.05rem;
+  color: var(--stone-500);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+.work-card {
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--stone-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-blue-light);
+  box-shadow: var(--shadow-lg);
+}
+.work-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--stone-100);
+}
+.work-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+.work-card:hover .work-photo img { transform: scale(1.04); }
+.work-card figcaption {
+  padding: 24px 26px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.work-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+  background: rgba(240,140,20,.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.work-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--stone-900);
+  line-height: 1.25;
+}
+.work-card p {
+  color: var(--stone-500);
+  font-size: .95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================
    Standards Section
    ========================================================= */
 .standards-section { background: var(--stone-100); }
