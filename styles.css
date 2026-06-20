@@ -442,8 +442,16 @@ h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; text-tran
 }
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
   gap: 32px;
+  justify-content: center;
+}
+/* If the last card is alone in an odd position (e.g. 3rd of 3 or 5th of 5 in a 2-col layout), center it across the row */
+.work-grid > .work-card:nth-child(odd):last-child:not(:first-child) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 380px;
+  width: 100%;
 }
 .work-card {
   margin: 0;
@@ -727,8 +735,12 @@ h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; text-tran
   flex-wrap: wrap;
   gap: 12px;
 }
+
 .footer-bottom p { font-size: .85rem; color: var(--stone-500); margin: 0; }
 .footer-bottom a { color: var(--stone-400); }
+.footer-credit { font-size: .78rem !important; color: var(--stone-500); opacity: .85; }
+.footer-credit a { color: var(--stone-300); font-weight: 500; text-decoration: none; }
+.footer-credit a:hover { color: var(--brand-blue-light); text-decoration: underline; }
 
 /* =========================================================
    Inner Page Hero (for service / location pages)
